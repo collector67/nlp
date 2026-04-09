@@ -1,0 +1,610 @@
+[
+  {
+    "title":"Labyrinth Generating",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Высокоуровневый язык программирования Python\"",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Fashion Supply Chain Optimization",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Теория принятия решений\"",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Gui Sqlite3",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по python с графическим интерфейсом и БД sqlite3",
+    "technologies":"Python",
+    "full_text":"# GUI-sqlite3\n<h2>Курсовая работа по python с графическим интерфейсом и БД sqlite3<\/h2><br>\n&nbsp&nbsp&nbspВ данном приложении использовался PyQt5 для создания просто графического интерфейсом, отображающего содержимое таблиц БД и кнопок для взаимодействия с ней. В качестве СУБД была использовала sqlite3 с соответствующей библиотекой python. Для создания потоков также был использовал PyQt5. Дополнительно была добавлена возможность экспорта данных из БД в файлы с разрешением <i>.xml<\/i> и <i>.json<\/i>.\n<br>UPD<br>\n<li><i>В папке \"alpha\" расположено примитивное консольное решение данной задачи.<\/i><\/li>\n<li><i>В папке \"ui files\" расположены файлы графического интерфейса, создаваемые Qt Designer.<\/li><\/i>\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Pythonprojectfortelegrammbot",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursach",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по Python Basic",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"2D Jrpg",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая Работа: 2D JRPG python",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Course Python Gr105",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по предмету Python: продвинутый уровень. ",
+    "technologies":"Python",
+    "full_text":"# Система управления подписками\n\nПолноценная подписочная модель с поддержкой платежей, автоматического списания средств и управления жизненным циклом подписок.\n\n# Для проверки работы можно воспользоваться файлом Инструкция_по_работе_курсача_v2.docx\n\n## Возможности\n\n- ✅ Ролевая модель (администратор\/пользователь)\n- ✅ Интеграция с платежной системой (Yoomoney API + фейковая реализация для тестирования)\n- ✅ Автоматическое списание средств по расписанию (Celery)\n- ✅ Система уведомлений\n- ✅ Управление промо-кодами и акциями\n- ✅ Система возвратов\n- ✅ История транзакций\n- ✅ Обработка edge cases:\n  - Недоступность платежной системы\n  - Недостаток средств\n  - Истечение акций\n  - Конкурентные операции над балансом пользователя\n\n## Технологии\n\n- Django 4.2\n- Django REST Framework\n- Celery + Redis (для фоновых задач)\n- SQLite (для разработки, можно заменить на PostgreSQL)\n\n## Установка\n\n1. Установите зависимости:\n\npip install -r requirements.txt\n\n\n2. Создайте файл `.env` в корне проекта:\n\nSECRET_KEY=your-secret-key-here\nDEBUG=True\nUSE_FAKE_PAYMENT=True\nCELERY_BROKER_URL=redis:\/\/localhost:6379\/0\nCELERY_RESULT_BACKEND=redis:\/\/localhost:6379\/0\n\n# Для Yoomoney (если не используете фейковую систему)\nYOOMONEY_CLIENT_ID=your-client-id\nYOOMONEY_CLIENT_SECRET=your-client-secret\n\n\n3. Примените миграции:\n\npython manage.py makemigrations\npython manage.py migrate\n\n\n4. Создайте суперпользователя:\n\npython manage.py createsuperuser\n\n\n5. Запустите Redis (для Celery):\n\n# Windows (с Chocolatey)\nchoco install redis-64\n\n# Linux\/Mac\nredis-server\n\n\n6. Запустите Celery worker:\n\ncelery -A subscription_service worker --loglevel=info\n\n\n7. Запустите Celery beat (для периодических задач):\n\ncelery -A subscription_service beat --loglevel=info\n\n\n8. Запустите Django сервер:\n\npython manage.py runserver\n\n\n## API Endpoints\n\n### Аутентификация\n- `POST \/api\/users\/register\/` - Регистрация пользователя\n- `GET \/api\/users\/me\/` - Информация о текущем пользователе\n\n### Пользователи\n- `GET \/api\/users\/` - Список пользователей (только свои для обычных пользователей)\n- `POST \/api\/users\/deposit\/` - Пополнение баланса\n\n### Тарифные планы\n- `GET \/api\/plans\/` - Список активных тарифных планов\n- `GET \/api\/plans\/{id}\/` - Детали тарифного плана\n\n### Подписки\n- `GET \/api\/subscriptions\/` - Список подписок\n- `POST \/api\/subscriptions\/create_subscription\/` - Создание подписки\n- `GET \/api\/subscriptions\/{id}\/` - Детали подписки\n- `POST \/api\/subscriptions\/{id}\/cancel\/` - Отмена подписки\n- `POST \/api\/subscriptions\/{id}\/toggle_auto_renew\/` - Переключение автопродления\n\n### Транзакции\n- `GET \/api\/transactions\/` - История транзакций\n- `GET \/api\/transactions\/{id}\/` - Детали транзакции\n- `POST \/api\/transactions\/refund\/` - Возврат средств\n\n### Промо-коды\n- `GET \/api\/promotions\/` - Список активных промо-кодов\n- `GET \/api\/promotions\/validate\/{code}\/` - Проверка валидности промо-кода\n\n### Уведомления\n- `GET \/api\/notifications\/` - Список уведомлений\n- `POST \/api\/notifications\/{id}\/mark_read\/` - Отметить как прочитанное\n- `POST \/api\/notifications\/mark_all_read\/` - Отметить все как прочитанные\n- `GET \/api\/notifications\/unread_count\/` - Количество непрочитанных\n\n### Административные endpoints\n- `GET\/POST\/PUT\/DELETE \/api\/admin\/plans\/` - Управление тарифными планами\n- `GET\/POST\/PUT\/DELETE \/api\/admin\/promotions\/` - Управление промо-кодами\n\n## Примеры использования\n\n### Создание подписки с промо-кодом\n\ncurl -X POST http:\/\/localhost:8000\/api\/subscriptions\/create_subscription\/ \\\n  -H \"Content-Type: application\/json\" \\\n  -H \"Cookie: sessionid=your-session-id\" \\\n  -d '{\n    \"plan_id\": 1,\n    \"promotion_code\": \"PROMO2024\"\n  }'\n\n### Пополнение баланса\n\ncurl -X POST http:\/\/localhost:8000\/api\/users\/deposit\/ \\\n  -H \"Content-Type: application\/json\" \\\n  -H \"Cookie: sessionid=your-session-id\" \\\n  -d '{\n    \"amount\": \"1000.00\"\n  }'\n\n\n### Возврат средств\n\ncurl -X POST http:\/\/localhost:8000\/api\/transactions\/refund\/ \\\n  -H \"Content-Type: application\/json\" \\\n  -H \"Cookie: sessionid=your-session-id\" \\\n  -d '{\n    \"transaction_id\": \"uuid-here\",\n    \"amount\": \"500.00\",\n    \"reason\": \"Возврат по запросу клиента\"\n  }'\n\n\n## Периодические задачи (Celery Beat)\n\nСистема автоматически выполняет следующие задачи:\n\n1. process_auto_renewals - Каждый час\n   - Автоматическое продление активных подписок\n   - Обработка ошибок платежей\n   - Приостановка подписок при недостатке средств\n\n2. send_subscription_expiring_notifications - Ежедневно в 9:00\n   - Уведомления о скором истечении подписок (за 3 дня)\n\n3. send_low_balance_notifications - Ежедневно в 10:00\n   - Уведомления о низком балансе (менее 100 руб.)\n\n4. check_expired_subscriptions - Ежедневно в 0:00\n   - Помечает истекшие подписки как expired\n\n## Обработка Edge Cases\n\n### 1. Недоступность платежной системы\n- Проверка доступности перед каждой операцией\n- Сохранение транзакции в статусе `pending`\n- Автоматическая повторная попытка при следующем запуске задачи\n- Уведомление пользователя об ошибке\n\n### 2. Недостаток средств\n- Проверка баланса перед списанием\n- Приостановка подписки при недостатке средств\n- Уведомление пользователя о необходимости пополнения\n\n### 3. Истечение акций\n- Валидация промо-кода при создании подписки\n- Проверка срока действия и количества использований\n- Автоматическая проверка при применении\n\n### 4. Конкурентные операции\n- Использование `select_for_update()` для блокировки строк БД\n- Транзакции для атомарности операций\n- Проверка баланса после блокировки\n\n## Структура проекта\n\ncourse\/\n├── subscription_service\/      # Основной проект Django\n│   ├── settings.py            # Настройки проекта\n│   ├── urls.py                # URL конфигурация\n│   ├── celery.py              # Конфигурация Celery\n│   └── ...\n├── subscriptions\/             # Приложение подписок\n│   ├── models.py              # Модели данных\n│   ├── views.py               # API endpoints\n│   ├── serializers.py         # Сериализаторы\n│   ├── services\/              # Бизнес-логика\n│   │   ├── subscription_service.py\n│   │   ├── refund_service.py\n│   │   └── notification_service.py\n│   ├── payment\/               # Платежная система\n│   │   ├── base.py            # Базовый класс провайдера\n│   │   ├── fake.py            # Фейковая реализация\n│   │   └── yoomoney.py        # Yoomoney интеграция\n│   ├── tasks.py               # Celery задачи\n│   └── ...\n├── requirements.txt           # Зависимости\n├── manage.py                  # Django management script\n└── README.md                  # Документация\n\n\n## Тестирование\n\nДля тестирования с фейковой платежной системой:\n\nfrom subscriptions.payment.fake import FakePaymentProvider\n\n# Установка доступности системы\nFakePaymentProvider.set_availability(True)\n\n# Установка вероятности ошибок (0.0 - 1.0)\nFakePaymentProvider.set_failure_rate(0.1)  # 10% ошибок\n\n\n## Администрирование\n\nДоступ к админ-панели Django:\n\nhttp:\/\/localhost:8000\/admin\/\n\n\nВ админ-панели можно:\n- Управлять пользователями\n- Создавать и редактировать тарифные планы\n- Управлять промо-кодами\n- Просматривать подписки и транзакции\n- Управлять уведомлениями\n\n## Безопасность\n\n- Использование транзакций БД для атомарности операций\n- Блокировка строк для предотвращения race conditions\n- Валидация всех входных данных\n- Проверка прав доступа на уровне API\n- Логирование всех операций\n\n## Расширение функциональности\n\n### Добавление нового платежного провайдера\n\n1. Создайте класс, наследующийся от `PaymentProvider`\n2. Реализуйте методы: `create_payment`, `check_payment_status`, `refund_payment`, `is_available`\n3. Обновите `PaymentProviderFactory` для использования нового провайдера\n\n### Добавление email-уведомлений\n\n1. Настройте SMTP в `.env`\n2. Расширьте `NotificationService` для отправки email\n3. Используйте Django email backend\n\n### Чтобы запустить фронт, надо перейти в корень папки frontend через cd и прописать там npm run dev. Работает только с включенным сервером django \n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursach Tfl",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по Теории формальных языков.",
+    "technologies":"Python",
+    "full_text":"# kursach_tfl\n Курсовая работа по Теории формальных языков.\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Project Doctor Who",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа - Игровое приложение на Python(Pygame)",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Beauty Salon System",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"База данных салона красоты\".",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Pc Parts Kurs",
+    "speciality":"Программная инженерия",
+    "description":"курсовая работа по учету компьютерных запчастей",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Sudoku Dlya Kuckoldu",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Судоку написанная на Vue.js + Python",
+    "technologies":"JavaScript",
+    "full_text":"# sudoku_dlya_kuckoldu\n\nFrontEnd:\nTypeScript,\nVue.js,\nVueX,\nVue-CLI,\nBootStrap\n\nBackEnd:\nFlask,\n\nКлассный\nУниверсальный\nКод\nОбобщающий\nЛюбовь\nДля\nУниверситета\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Comp Graphic",
+    "speciality":"Программная инженерия",
+    "description":"Лабораторные работы и курсовая работа по дисциплине \"Компьютерная графика\"",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Space Invader",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Прикладное программирование на Python 2 курс 4 семестр",
+    "technologies":"Python",
+    "full_text":"# Space-Invader\nКурсовая работа Прикладное программирование на Python 2 курс 4 семестр\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Muzmarket",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по базам данных 3й курс. Прототип онлайн-магазина музыкальных инструментов.",
+    "technologies":"HTML",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Pysast",
+    "speciality":"Программная инженерия",
+    "description":"Сканер уязвимостей для кода Python. Курсовая работа по дисциплине \"Информационная безопасность\". ВГТУ бПАС-221. 2025",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Ai Translator",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Методы искусственного интеллекта\" (01.03.04 Прикладная математика, НИТУ МИСИС)",
+    "technologies":"Python",
+    "full_text":"# AI-traslator\nПриложение для распознавания текста на полученном от пользователя изображении (фотографии уличной вывески) и перевода его на русский язык (при необходимости). Выполнено в качестве курсовой работы по дисциплине \"Методы искусственного интеллекта\" в рамках обучения по программе 01.03.04 Прикладная математика в НИТУ МИСИС.\n## Стэк использованных инструментов\n* язык программирования: **Python**;\n* библиотека для написания пользовательского интерфейса: **PySimpleGUI** [1];\n* ввод-вывод изображений: **OpenCV** [2];\n* распознавание текста на изображении: **EasyOCR** [3];\n* машинный перевод распознанного текста на русский: **TextBlob** [4];\n* редактор кода: **VS Code**.\n## Последовательность шагов работы с приложением\n1. Пользователь указывает расположение фотографии, на которой необходимо распознать и перевести текст (программа поддерживает форматы изображений JPG, JPEG и PNG).\n2. Пользователь указывает язык текста, который необходимо распознать на данной фотографии (поддерживаемые языки: русский, английский, испанский, немецкий и французский).\n3. Если указанный язык – русский, то в текстовом окне появляется распознанный текст, а также отображается фотография с обведенными на ней участками, содержащими этот текст.\n4. Если указанный язык не русский, в текстовом окне появляется переведенный текст, а также отображается фотография с обведенными на ней участками, содержащими иностранный текст, и подписями на русском языке рядом.\n## Демонстрация работы приложения\nЗапустив программу, пользователь попадает в основное меню:\n\n![Начальный экран приложения](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/ee7c485c-b539-4565-92fa-1902618a3fe2)\n\nПри нажатии на кнопку «Помощь», появляется окно с краткими пояснениями по работе с приложением:\n\n![Окно \"Помощь\"](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/f4ae775a-02f2-49a1-92ce-0c0ec07a8960)\n\nВ раскрывающемся списке основного окна приложения можно выбрать один из пяти доступных для распознавания языков: русский, английский, испанский, немецкий, французский. Русский язык – вариант по умолчанию:\n\n![Выбор языка распознавания текста](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/33d7ce19-6bd8-485d-90f8-7a62acb9636b)\n\nРассмотрим результат работы приложения для фотографии с текстом на русском языке: укажем путь к файлу, нажмем кнопку «Начать» и получим результат:\n\n![Выбор файла](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/cd4157cb-8f9c-4b2e-b971-b084b5ae31c6)\n\n![Результат работы программы для вывески с русскоязычным текстом](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/af788324-8461-4498-b7e7-c49b619afa2b)\n\nРассмотрим теперь результат работы приложения для фотографии с текстом на испанском языке: укажем путь к файлу и выберем испанский язык, нажмем кнопку «Начать» и получим результат:\n\n![Выбор файла и испанского языка распознавания](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/a27627ba-5cae-40d7-85cc-2fc0a5e94d9a)\n\n![Результат работы программы для вывески с текстом на испанском языке](https:\/\/github.com\/Ilyaant\/AI-translator\/assets\/21258800\/e9d09471-fbd7-4072-9ba6-891f56b4a400)\n\nДля вывесок на иностранных языках в качестве результата отображается картинка с не только обведенным текстом, но и подписями на русском языке.\n\n## Ссылки на использованные ресурсы\n1. PySimpleGUI URL: https:\/\/www.pysimplegui.org\/en\/latest\/.\n2. Home - OpenCV URL: https:\/\/opencv.org\/.\n3. JaidedAI \/ EasyOCR: Ready-to-use OCR with 80+ supported languages and all popular writing scripts including Latin, Chinese, Arabic, Devanagari, Cyrillic and etc. \/\/ GitHub URL: https:\/\/github.com\/JaidedAI\/EasyOCR.\n4. TextBlob: Simplified Text Processing - TextBlob 0.16.0 Documentation URL: https:\/\/textblob.readthedocs.io\/en\/dev\/.\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework Mathematical Statistics",
+    "speciality":"Программная инженерия",
+    "description":"В данном репозитория представлена курсовая работа по мат.статистике с использование языка программирования python 3 и JupiterNotebook",
+    "technologies":null,
+    "full_text":"# coursework_mathematical_statistics\nВ данном репозитория представлена курсовая работа по мат.статистике с использование языка программирования python 3 и JupiterNotebook\n\n1. Используя подходящую функцию (датчик псевдослучайных чисел, \nраспределенных по указанному в Таблице закону; параметры распределения  \nуказанны там же),  получить выборки объема V1,  V2  и V3. Для каждой \nвыборки вычислить выборочную оценку среднего, смещенную и \nнесмещенную выборочные оценки дисперсии; сравнить оценки с \nтеоретическими (истинными) значениями мат.ожидания и дисперсии \nмоделируемой с.в.   Для выборки объема V3 подобрать наилучшую \nгруппировку и построить гистограмму.\n2. Методом суммирования получить выборки объема V1 \/k, V2 \/k и V3 \/k \n(k=12) из нормального распределения с указанными параметрами. \n3. Для каждой выборки, полученной в п.2, вычислить выборочные \nоценки среднего, дисперсии, коэффициента асимметрии и эксцесса. \nСравнить полученные оценки с теоретическими значениями. \n4. Для каждой выборки из п. 2 вывести в одном графическом окне \nэмпирическую функцию распределения и теоретическую функцию \nраспределения. Подобрать для каждой выборки наилучшую группировку и \nпостроить в одном графическом окне нормированную гистограмму и \nплотность распределения вероятностей.\n5. Повторить  многократно (~ 100 ) процесс моделирования выборки из \nнормального распределения объема V1 \/k  и получить усредненные значения \nвыборочных оценок (см. п.3). \n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Parser Edsl Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Даниэлы Обущаровой 2023",
+    "technologies":"Python",
+    "full_text":"# Библиотека на Python для написания парсеров компиляторов\n\nДанная библиотека позволяет описать в исходном тексте программы лексические\nдомены при помощи регулярных выражений и грамматику языка в БНФ-подобном\nстиле.\n\nТестовый пример — см. [test.py](test.py).\n\nИсходно это курсовая работа Даниэлы Обущаровой 2023 года. В 2024 году была\nсделана попытка расширить возможности библиотеки Георгием Гречко — попытка\nнеудачная (код не отлажен), находится в отдельной ветке `georgre4ko-main`.\n\nВ 2025 году Диасом Исаковым (тоже в рамках курсовой) библиотека была успешно\nрасширена алгоритмом предсказывающего разбора, алгоритмом Эрли и метками\nприоритета и ассоциативности для LALR(1) —\nсм. [Записка Исакова 2025.pdf](Записка Исакова 2025.pdf).\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Rentlypython",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursovaya Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа",
+    "technologies":"HTML",
+    "full_text":"\nКурсовая работа\n\n![srcreenshot](1.png)\n![srcreenshot](2.png)\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Course Work Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа",
+    "technologies":"HTML",
+    "full_text":"# Course_work_Python\nКурсовая работа\n\n![srcreenshot](1.png)\n![srcreenshot](2.png)\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Nesterenkoveronika Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа ",
+    "technologies":null,
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Pythoncoursework2",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа 2",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Biblioteka",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Python",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Uni Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по ООП",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Weather App Python",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа (фриланс, PyCharm) ",
+    "technologies":"Python",
+    "full_text":"# Weather_app_Python\nКурсовая работа (фриланс, PyCharm) \n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Priemnayakomissiyaonpython",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по ООП",
+    "technologies":"Python",
+    "full_text":"# PriemnayaKomissiyaOnPython\nКурсовая работа по ООП\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Skypro Python Dev Cw 2",
+    "speciality":"Программная инженерия",
+    "description":"Типа курсовая работа №2",
+    "technologies":"HTML",
+    "full_text":"# Курсовая работа №2\n\n## Цель\n\nСоздание небольшого сервиса, похожего на соцсеть типа \"Instagram\"\nСистема состоит из:\n- **Лента** \n- **Подробный пост** \n- **Поиск**\n- **Все посты пользователя (версия со звездочкой)**\n- **Посты по тегу (версия со звездочкой)**\n- **Закладки (версия со звездочкой)**\n---\nОсновные методы класса находятся в файле utils.py\n\n---\nНеобходимые зависимости описаны в requirements.txt\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Systolic Array Emulation",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа, Python, 2024",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Transpozon",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа для модуля Django",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Ssw Backend Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по Backend-разработке",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coworking Website",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по управлению проектами.",
+    "technologies":"HTML",
+    "full_text":"# Курсовая работа по управлению проектами\n\n### Инструкция по рабочему процессу для contributors\n\n### 1. Скачиваем себе репозиторий в первый раз\n* Заходим в [наш репозиторий](https:\/\/github.com\/ovsyannikovas\/coworking_website)\n* Нажимаем **Code** и копируем ссылку\n* Открываем консоль в папке, где хотите, чтобы находилась папка с репозиторием\n* `git clone скопированная_ссылка`\n\n### 2. Загружаем последнюю версию репозитория к себе на ветку\n* Переходим в папку скачанного репозитория\n* Открываем консоль\n* `git checkout ваша_ветка`\n* `git pull --no-commit origin main`\n\n### 3. Загружаем изменения на свою ветку\nПеред выполнением пункта убедитесь, что на вашей ветке последняя версия репозитория (пункт 2)!\n* Переходим в папку скачанного репозитория\n* Открываем консоль\n* `git checkout ваша_ветка`\n* `git add *`\n* Проверяем командой `git status`, что добавились только нужные файлы\n* `git commit -m \"что_добавлено\"`\n* `git push origin ваша_ветка`\n\n### 4. Загружаем изменения из своей ветки в `main`\n* Заходим в [наш репозиторий](https:\/\/github.com\/ovsyannikovas\/coworking_website)\n* Заходим в **Pull requests**\n* Нажимаем **New pull request**\n* Выбираем **base:main -> compare:ваша_ветка**\n* Нажимаем **Create pull request**\n* Содержательно заполняем форму согласно шаблону (в поле title, где, скорее всего, стоит имя вашей ветки, продублируйте \"Что изменилось (кратко)?\")\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Newsletter Service",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"Сервис рассылок\". Реализация с использованием django.",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Bookshop",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Проектирование Интернет-приложений\". Создание веб-приложения по продаже книг.",
+    "technologies":"Python",
+    "full_text":"Создание веб-приложения по продаже книг. Для создания веб-приложения использовался язык программирования Python и фреймворк Django. В качестве базы данных был выбран MySQL.\r\n\r\nБыли выделены три роли: администратор, авторизованный и неавторизованный пользователь. К каждой роли были предъявлены функциональные требования, представленные на изображениях ниже:\r\n\r\n![alt text](screenshots\/UC_1.png \"Диаграмма использования пользователей\")\r\n\r\n![alt text](screenshots\/UC_2.png \"Диаграмма использования администратора\")\r\n\r\nЛогическая модель базы данных выглядит следующим образом:\r\n\r\n![alt text](screenshots\/DB.png \"Логическая модель базы данных\")\r\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа на Django",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Structure",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа",
+    "technologies":"JavaScript",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Course Work Django",
+    "speciality":"Программная инженерия",
+    "description":"Моя курсовая работа",
+    "technologies":"CSS",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по теме \"Основы Django\"",
+    "technologies":"HTML",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Magistratura Dashboard Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Django (Python)",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Djangorest Api",
+    "speciality":"Программная инженерия",
+    "description":"курсовая работа 2.1 МПУ ",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kyrsovaya Mironov Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа 3 курс",
+    "technologies":"Python",
+    "full_text":"# kyrsovaya-mironov-django\nКурсовая работа 3 курс\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Site Kyrs",
+    "speciality":"Программная инженерия",
+    "description":"курсовая работа под заказ",
+    "technologies":"HTML",
+    "full_text":"# 🛍️ Django Shop Project\r\n\r\nСовременный веб-сайт магазина, построенный на Django с системой пользователей, отзывов, статей и корзины покупок.\r\n\r\n## 🚀 Быстрый старт\r\n\r\n### Для новых пользователей\r\nЕсли вы впервые настраиваете проект, выполните следующие шаги:\r\n\r\n1. **Установите PostgreSQL** (если не установлен)\r\n2. **Создайте базу данных и пользователя** (см. раздел \"Настройка PostgreSQL\")\r\n3. **Обновите настройки** в `shop\/settings.py`\r\n4. **Установите зависимости** и запустите проект\r\n\r\n### Предварительные требования\r\n- PostgreSQL должен быть установлен и запущен\r\n- Создайте базу данных для проекта\r\n- Настройте пользователя PostgreSQL\r\n\r\n## 🗄️ Настройка PostgreSQL\r\n\r\n### 1. Установка PostgreSQL\r\nСкачайте и установите PostgreSQL с официального сайта: https:\/\/www.postgresql.org\/download\/\r\n\r\n### 2. Создание базы данных и пользователя\r\n\r\n#### Windows (через psql):\r\n```sql\r\n-- Подключитесь к PostgreSQL как суперпользователь\r\npsql -U postgres\r\n\r\n-- Создайте базу данных\r\nCREATE DATABASE django_shop_db;\r\n\r\n-- Создайте пользователя\r\nCREATE USER your_username WITH PASSWORD 'your_password';\r\n\r\n-- Дайте права пользователю\r\nGRANT ALL PRIVILEGES ON DATABASE django_shop_db TO your_username;\r\n\r\n-- Выйдите\r\n\\q\r\n```\r\n\r\n#### Linux\/macOS:\r\n```bash\r\n# Создание базы данных\r\nsudo -u postgres createdb django_shop_db\r\n\r\n# Создание пользователя\r\nsudo -u postgres createuser --interactive your_username\r\n\r\n# Установка пароля\r\nsudo -u postgres psql -c \"ALTER USER your_username PASSWORD 'your_password';\"\r\n\r\n# Дать права\r\nsudo -u postgres psql -c \"GRANT ALL PRIVILEGES ON DATABASE django_shop_db TO your_username;\"\r\n```\r\n\r\n### 3. Настройка Django\r\nОбновите настройки в `shop\/settings.py`:\r\n```python\r\nDATABASES = {\r\n    'default': {\r\n        'ENGINE': 'django.db.backends.postgresql',\r\n        'NAME': 'django_shop_db',        # Ваша база данных\r\n        'USER': 'your_username',         # Ваш пользователь\r\n        'PASSWORD': 'your_password',      # Ваш пароль\r\n        'HOST': 'localhost',\r\n        'PORT': '5432',\r\n    }\r\n}\r\n```\r\n\r\n### 4. Пример полной настройки\r\n\r\n#### Вариант 1: Использование стандартной базы данных `postgres`\r\n```sql\r\n-- 1. Подключитесь к PostgreSQL как суперпользователь\r\npsql -U postgres\r\n\r\n-- 2. Создайте пользователя (если нужно)\r\nCREATE USER myuser WITH PASSWORD 'mypassword';\r\n\r\n-- 3. Дайте права на базу данных postgres\r\nGRANT ALL PRIVILEGES ON DATABASE postgres TO myuser;\r\n\r\n-- 4. Выйдите\r\n\\q\r\n```\r\n\r\n#### Вариант 2: Создание отдельной базы данных\r\n```sql\r\n-- 1. Подключитесь к PostgreSQL\r\npsql -U postgres\r\n\r\n-- 2. Создайте базу данных\r\nCREATE DATABASE django_shop_db;\r\n\r\n-- 3. Создайте пользователя\r\nCREATE USER myuser WITH PASSWORD 'mypassword';\r\n\r\n-- 4. Дайте права\r\nGRANT ALL PRIVILEGES ON DATABASE django_shop_db TO myuser;\r\n\r\n-- 5. Выйдите\r\n\\q\r\n```\r\n\r\n#### Настройка в .env файле:\r\n```env\r\n# Для варианта 1 (стандартная база postgres)\r\nDB_NAME=postgres\r\nDB_USER=postgres\r\nDB_PASSWORD=your_password\r\n\r\n# Для варианта 2 (отдельная база)\r\nDB_NAME=django_shop_db\r\nDB_USER=myuser\r\nDB_PASSWORD=mypassword\r\n```\r\n\r\n### Windows\r\n\r\n#### 1. Клонирование и настройка\r\n```powershell\r\n# Перейдите в директорию проекта\r\ncd ...\\django_site_kyrs\r\n\r\n# Активируйте виртуальное окружение\r\n.\\venv\\Scripts\\Activate.ps1\r\n\r\n# Установите зависимости (если не установлены)\r\npip install -r requirements.txt\r\n```\r\n\r\n#### 2. Настройка базы данных\r\n```powershell\r\n# Выполните миграции\r\npython manage.py migrate\r\n\r\n# Создайте суперпользователя (опционально)\r\npython manage.py createsuperuser\r\n```\r\n\r\n#### 3. Запуск сервера\r\n```powershell\r\n# Запустите сервер разработки\r\npython manage.py runserver\r\n```\r\n\r\n#### 4. Открытие в браузере\r\nОткройте браузер и перейдите по адресу: **http:\/\/127.0.0.1:8000**\r\n\r\n---\r\n\r\n### Linux\/macOS\r\n\r\n#### 1. Клонирование и настройка\r\n```bash\r\n# Перейдите в директорию проекта\r\ncd \/path\/to\/django_site_kyrs\r\n\r\n# Активируйте виртуальное окружение\r\nsource venv\/bin\/activate\r\n\r\n# Установите зависимости\r\npip install -r requirements.txt\r\n```\r\n\r\n#### 2. Настройка базы данных\r\n```bash\r\n# Выполните миграции\r\npython manage.py migrate\r\n\r\n# Создайте суперпользователя (опционально)\r\npython manage.py createsuperuser\r\n```\r\n\r\n#### 3. Запуск сервера\r\n```bash\r\n# Запустите сервер разработки\r\npython manage.py runserver\r\n\r\n# Или используйте готовый скрипт\r\n.\/run_django.sh\r\n```\r\n\r\n#### 4. Открытие в браузере\r\nОткройте браузер и перейдите по адресу: **http:\/\/127.0.0.1:8000**\r\n\r\n---\r\n\r\n## 📋 Требования\r\n\r\n### Системные требования\r\n- Python 3.8+\r\n- pip\r\n- Виртуальное окружение (venv)\r\n- PostgreSQL (база данных)\r\n\r\n### Зависимости проекта\r\n```\r\nDjango==5.2.6\r\npillow==11.3.0\r\npsycopg2-binary==2.9.10    # PostgreSQL драйвер\r\npython-dotenv==1.1.1\r\nwhitenoise==6.11.0\r\ngunicorn==23.0.0\r\n```\r\n\r\n**База данных:** PostgreSQL (не SQLite)\r\n\r\n---\r\n\r\n## 🗂️ Структура проекта\r\n\r\n```\r\ndjango_site_kyrs\/\r\n├── 📁 articles\/          # Модуль статей\r\n├── 📁 cart\/             # Модуль корзины\r\n├── 📁 main\/             # Основной модуль (товары\/услуги)\r\n├── 📁 review\/           # Модуль отзывов\r\n├── 📁 user\/             # Модуль пользователей\r\n├── 📁 shop\/             # Настройки Django\r\n├── 📁 static\/           # Статические файлы (CSS, JS)\r\n├── 📁 templates\/        # HTML шаблоны\r\n├── 📄 manage.py         # Django управление\r\n├── 📄 requirements.txt  # Зависимости\r\n└── 📄 README.md         # Документация\r\n```\r\n\r\n---\r\n\r\n## ⚙️ Настройка\r\n\r\n### Переменные окружения\r\nСоздайте файл `.env` в корне проекта на основе `env.example`:\r\n```env\r\n# Django Settings\r\nSECRET_KEY=your-secret-key-here\r\nDEBUG=True\r\n\r\n# Database Settings\r\nDB_NAME=django_shop_db\r\nDB_USER=postgres\r\nDB_PASSWORD=your_password\r\nDB_HOST=localhost\r\nDB_PORT=5432\r\n```\r\n\r\n### Настройки базы данных\r\nПроект использует переменные окружения для настройки PostgreSQL. Настройки в `shop\/settings.py`:\r\n```python\r\nDATABASES = {\r\n    'default': {\r\n        'ENGINE': 'django.db.backends.postgresql',\r\n        'NAME': os.getenv('DB_NAME', 'django_shop_db'),\r\n        'USER': os.getenv('DB_USER', 'postgres'),\r\n        'PASSWORD': os.getenv('DB_PASSWORD', ''),\r\n        'HOST': os.getenv('DB_HOST', 'localhost'),\r\n        'PORT': os.getenv('DB_PORT', '5432'),\r\n    }\r\n}\r\n```\r\n\r\n**Настройка через .env файл:**\r\n1. Скопируйте `env.example` в `.env`\r\n2. Заполните ваши данные базы данных\r\n3. Перезапустите Django\r\n\r\n**Требования для работы:**\r\n- PostgreSQL должен быть установлен и запущен\r\n- База данных должна быть создана (см. раздел \"Настройка PostgreSQL\")\r\n- Пользователь PostgreSQL должен иметь права доступа к базе данных\r\n\r\n---\r\n\r\n## 🎯 Основные функции\r\n\r\n### 👤 Система пользователей\r\n- Регистрация и авторизация\r\n- Профили пользователей\r\n- Система достижений и прогресса\r\n- Уведомления\r\n\r\n### 🛒 Магазин\r\n- Каталог товаров и услуг\r\n- Корзина покупок\r\n- Детальные страницы товаров\r\n\r\n### 📝 Контент\r\n- Система статей\r\n- Отзывы пользователей\r\n- Административная панель\r\n\r\n### 🎨 Дизайн\r\n- Адаптивный дизайн\r\n- Современный UI\/UX\r\n- Темная\/светлая тема\r\n\r\n---\r\n\r\n## 🛠️ Команды разработки\r\n\r\n### Основные команды Django\r\n```bash\r\n# Запуск сервера\r\npython manage.py runserver\r\n\r\n# Создание миграций\r\npython manage.py makemigrations\r\n\r\n# Применение миграций\r\npython manage.py migrate\r\n\r\n# Создание суперпользователя\r\npython manage.py createsuperuser\r\n\r\n# Сбор статических файлов\r\npython manage.py collectstatic\r\n```\r\n\r\n### Управление данными\r\n```bash\r\n# Загрузка категорий прогресса\r\npython manage.py load_progress_categories\r\n\r\n# Загрузка достижений\r\npython manage.py load_achievements\r\n```\r\n\r\n### Полезные скрипты\r\n```bash\r\n# Проверка подключения к базе данных\r\npython check_db.py\r\n\r\n# Автоматическая настройка базы данных\r\npython setup_db.py\r\n```\r\n\r\n---\r\n\r\n## 🚀 Развертывание\r\n\r\n### Локальная разработка\r\n```bash\r\n# Windows\r\n.\\venv\\Scripts\\Activate.ps1\r\npython manage.py runserver\r\n\r\n# Linux\/macOS\r\nsource venv\/bin\/activate\r\npython manage.py runserver\r\n```\r\n\r\n### Продакшн\r\n```bash\r\n# Сбор статических файлов\r\npython manage.py collectstatic\r\n\r\n# Запуск с Gunicorn\r\ngunicorn shop.wsgi:application\r\n```\r\n\r\n---\r\n\r\n## 🐛 Решение проблем\r\n\r\n### Ошибка \"ModuleNotFoundError: No module named 'psycopg2'\"\r\n```bash\r\n# Установите psycopg2 для PostgreSQL\r\npip install psycopg2-binary\r\n```\r\n\r\n### Ошибка подключения к PostgreSQL\r\n1. **Убедитесь, что PostgreSQL запущен:**\r\n   ```bash\r\n   # Windows\r\n   netstat -an | findstr :5432\r\n   \r\n   # Linux\/macOS\r\n   sudo systemctl status postgresql\r\n   ```\r\n\r\n2. **Проверьте настройки в `shop\/settings.py`** - используйте переменные окружения\r\n\r\n3. **Проверьте, что база данных существует:**\r\n   ```sql\r\n   -- Подключитесь к PostgreSQL\r\n   psql -U postgres\r\n   \r\n   -- Проверьте список баз данных\r\n   \\l\r\n   \r\n   -- Если базы нет, создайте её\r\n   CREATE DATABASE your_database_name;\r\n   ```\r\n\r\n4. **Проверьте права пользователя:**\r\n   ```sql\r\n   -- Дайте права пользователю\r\n   GRANT ALL PRIVILEGES ON DATABASE your_database_name TO your_user;\r\n   ```\r\n\r\n5. **Убедитесь, что пароль правильный** - проверьте в .env файле\r\n\r\n### Проблемы с миграциями\r\n```bash\r\n# Применение миграций к PostgreSQL\r\npython manage.py migrate\r\n\r\n# Сброс миграций (ОСТОРОЖНО!)\r\npython manage.py migrate --fake-initial\r\n```\r\n\r\n### Проверка подключения к PostgreSQL\r\n```bash\r\n# Проверка статуса Django\r\npython manage.py check\r\n\r\n# Проверка миграций\r\npython manage.py showmigrations\r\n\r\n# Тест подключения к базе данных\r\npython manage.py dbshell\r\n\r\n# Специальный скрипт проверки (рекомендуется)\r\npython check_db.py\r\n```\r\n\r\n### Проверка настроек\r\nУбедитесь, что в `shop\/settings.py` правильно указаны:\r\n- `NAME` - имя вашей базы данных\r\n- `USER` - ваш пользователь PostgreSQL  \r\n- `PASSWORD` - пароль пользователя\r\n- `HOST` - обычно 'localhost'\r\n- `PORT` - обычно '5432'\r\n\r\n---\r\n\r\n## 📞 Поддержка\r\n\r\nЕсли у вас возникли проблемы:\r\n\r\n1. Проверьте, что все зависимости установлены\r\n2. Убедитесь, что виртуальное окружение активировано\r\n3. Убедитесь, что PostgreSQL запущен и доступен\r\n4. Проверьте настройки базы данных в `shop\/settings.py`\r\n5. Выполните миграции: `python manage.py migrate`\r\n6. Проверьте подключение: `python manage.py check`\r\n\r\n---\r\n\r\n## 📄 Лицензия\r\n\r\nЭтот проект создан в образовательных целях.\r\n\r\n.\\venv\\Scripts\\Activate.ps1\r\npython manage.py clear_admin_log --days 90 — удалить записи старше 90 дней\r\npython manage.py clear_admin_log --days 30 — старше 30 дней\r\npython manage.py clear_admin_log --all — удалить все записи",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Bd",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по Управлению данными",
+    "technologies":null,
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Kursovaya",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по WEB-технологиям",
+    "technologies":"HTML",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Recipesite",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Кравец 201-322",
+    "technologies":"Python",
+    "full_text":"# django_recipesite\nКурсовая работа Кравец 201-322\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django Coursework",
+    "speciality":"Программная инженерия",
+    "description":"курсовая работа: Сервис управления рассылками",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Django 2",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"Сервис управления рассылками\"",
+    "technologies":"Python",
+    "full_text":"# Сервис управления рассылками\n\nDjango-приложение для управления email-рассылками, позволяющее пользователям создавать, редактировать и отслеживать рассылки, управлять получателями и просматривать статистику отправки.\n\n##  Основные возможности\n\n- ** Регистрация и аутентификация пользователей**\n- ** Создание и управление получателями рассылки (клиенты)**\n- ** Создание и редактирование сообщений (тема + тело письма)**\n- ** Настройка расписания рассылки с тремя статусами:**\n  - Создана\n  - Запущена\n  - Завершена\n- ** Отправка писем по требованию (вручную)**\n- ** Журнал попыток отправки с фиксацией статуса и ответа сервера**\n- ** Статистика по рассылкам:**\n  - Количество успешных и неуспешных попыток\n  - Общее количество отправленных сообщений\n  - Количество уникальных получателей\n- ** Права доступа:**\n  - Пользователи видят только свои рассылки\n  - Менеджеры могут просматривать все рассылки и клиентов\n- ** Кеширование главной страницы для повышения производительности**\n- ** Адаптивный интерфейс на базе Bootstrap**\n\n##  Роли пользователей\n\n| Роль       | Права                                                                 |\n|------------|-----------------------------------------------------------------------|\n| Пользователь | Создание, редактирование и удаление своих клиентов, сообщений и рассылок |\n| Менеджер   | Просмотр всех рассылок и клиентов, отключение рассылок, блокировка пользователей |\n\n## Технологии\n\n- Python 3.10+\n- Django 4.2\n- Poetry — менеджер зависимостей\n- SQLite3 — база данных (для разработки)\n- Pillow — обработка аватаров пользователей\n- Bootstrap 5 — адаптивный интерфейс\n- Django-встроенное кеширование (LocMemCache)\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework Django",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"Сервис управления рассылками\"",
+    "technologies":null,
+    "full_text":"# Coursework-Django\nКурсовая работа \"Сервис управления рассылками\"\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursovayrabota",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"Создание приложения на Django\"",
+    "technologies":null,
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework Pythondjango",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа на 23.12.17",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Carhub Avtoportal",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по Django — автомобильный портал",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Car Credit Calculator",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа Кредитный калькулятор, Автокредит. Python, Django.",
+    "technologies":"HTML",
+    "full_text":"# Car-Credit-Calculator\nКурсовая работа Кредитный калькулятор, Автокредит. Python, Django.\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework 6",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа \"Основы веб-разработки на Django\"",
+    "technologies":"Python",
+    "full_text":"# Курсовая работа 6\n\n<div align=\"center\">\n<a href=\"https:\/\/wakatime.com\/@IldarGaleev\/projects\/coursework_6\"><img src=\"https:\/\/wakatime.com\/badge\/user\/45799db8-b1f8-4627-9264-2c8d4c352567\/project\/018d6055-7d00-4097-a133-658e7c54a640.svg\" alt=\"wakatime\"><\/a>\n<img src=\"https:\/\/img.shields.io\/github\/last-commit\/IldarGaleevSkyProHomeworks\/coursework_6.svg\"\/>\n<\/div>\n\n1. Установите зависимости\n\n``` PowerShell\npoetry install\n```\n\n2. Создайте базу данных и пропишите настройки подключения в файле .env ([шаблон файла](.env.template))\n3. Задайте необходимые [переменные окружения](#переменные-окружения)\n4. Примените миграции\n\n\n``` PowerShell \n python .\\manage.py migrate\n```\n\n5. Создайте учетную запись администратора\n\n``` PowerShell\npython .\\manage.py createsuperuser\n```\n6. Запустите сервер\n``` PowerShell\npython .\\manage.py runserver\n```\n7. Добавьте задачи в `cron` для отправки e-mail сообщений\n> [!TIP]\n> \n> Для ОС Windows воспользуйтесь [WSL](https:\/\/learn.microsoft.com\/ru-ru\/windows\/wsl\/setup\/environment)\n> \n``` PowerShell\npython .\\manage.py crontab add\n```\n\n## Переменные окружения\n\n> [!TIP]\n> \n> Поддерживается файл `.env` для назначения переменных. [Шаблон файла](.env.template)\n> \n\n### Общие\n\n| Переменная      | Файл настроек                            | Назначение               |\n|-----------------|------------------------------------------|--------------------------|\n| `SECRET_KEY`    | [config\/settings.py](config\/settings.py) | Ключ безопасности Django |\n| `SITE_ID`       | [config\/settings.py](config\/settings.py) | Текущий домен            |\n\n\n\n### Postgres\n\n| Переменная    | Файл настроек                            | Назначение                          |\n|---------------|------------------------------------------|-------------------------------------|\n| `PG_NAME`     | [config\/settings.py](config\/settings.py) | Имя базы данных                     |\n| `PG_USER`     | [config\/settings.py](config\/settings.py) | Имя пользователя для подключения    |\n| `PG_PASSWORD` | [config\/settings.py](config\/settings.py) | Пароль пользователя для подключения |\n| `PG_HOST`     | [config\/settings.py](config\/settings.py) | Имя хоста с сервером                |\n| `PG_PORT`     | [config\/settings.py](config\/settings.py) | Порт сервера                        |\n\n\n### Страница публикаций\n\n| Переменная               | Файл настроек                            | Назначение                                             |\n|--------------------------|------------------------------------------|--------------------------------------------------------|\n| `ARTICLES_PER_PAGE`      | [blog_app\/apps.py](blog_app\/apps.py)     | Количество публикаций на странице                      |\n| `POPULAR_ARTICLES_COUNT` | [config\/settings.py](config\/settings.py) | Отображаемое количество публикаций на главной странице |\n\n\n### Кеширование\n| Переменная                | Файл настроек                            | Назначение                               |\n|---------------------------|------------------------------------------|------------------------------------------|\n| `REDIS_CONNECTION_STRING` | [config\/settings.py](config\/settings.py) | Строка подключения к Redis               |\n| `CACHE_ENABLED`           | [config\/settings.py](config\/settings.py) | Включить кеширование                     |\n| `REDIS_CACHE_DATABASE`    | [config\/settings.py](config\/settings.py) | БД Redis, используемая для кеширования   |\n| `PAGE_CACHE_TIME`         | [config\/settings.py](config\/settings.py) | Время (сек.) обновления кеша контроллера |\n\n### Логирование\n\nДля настройки логирования укажите путь к json файлу конфигурации в переменной окружения `LOGGING_CONFIG_FILE`.\n\nПример файла конфигурации для вывода отладочных сообщений в консоль от менеджера фоновых задач:\n\n```json\n{\n  \"version\": 1,\n  \"disable_existing_loggers\": false,\n  \"handlers\": {\n    \"console\": {\n      \"class\": \"logging.StreamHandler\"\n    }\n  },\n  \"root\": {\n    \"handlers\": [\n      \"console\"\n    ],\n    \"level\": \"WARNING\"\n  },\n  \"loggers\": {\n    \"tasks.send_mail\": {\n      \"level\": \"DEBUG\"\n    }\n  }\n}\n```\n\n### Фоновые задачи\n\n| Переменная                         | Файл настроек                            | Назначение                             |\n|------------------------------------|------------------------------------------|----------------------------------------|\n| `BG_TASK__REDIS_HOSTNAME`          | [config\/settings.py](config\/settings.py) | Сервер `Redis`                         |\n| `BG_TASK__REDIS_PORT`              | [config\/settings.py](config\/settings.py) | Порт сервера `Redis`                   |\n| `BG_TASK__REDIS_DB`                | [config\/settings.py](config\/settings.py) | База данных `Redis`                    |\n| `ACCOUNT_SERVICE_MAIL_RETRY_COUNT` | [config\/settings.py](config\/settings.py) | Число повторных попыток отправки писем |\n| `ACCOUNT_SERVICE_MAIL_TASK_TTL`    | [config\/settings.py](config\/settings.py) | Время жизни задачи                     |\n\n## Учетная запись менеджера \n\nДля создания учетных записей менеджеров создайте группу со следующими правами или назначьте их напрямую пользователю:\n\n| Разрешение                     | Описание                                 |\n|--------------------------------|------------------------------------------|\n| `app_accounts.view_user`       | Может просматривать список пользователей |\n| `app_accounts.can_block_users` | Может блокировать пользователей          |\n| `app_mailing.view_mailing`     | Может просматривать рассылки             |\n| `app_mailing.can_stop_mailing` | Может останавливать рассылки             |\n| `app_mailing.view_mailmessage` | Может просматривать письма рассылок      |",
+    "source":"GitHub"
+  },
+  {
+    "title":"Mailing Service",
+    "speciality":"Программная инженерия",
+    "description":"Django сервис управления email-рассылками - курсовая работа",
+    "technologies":"JavaScript",
+    "full_text":"# Сервис управления рассылками\n\nВеб-приложение для управления email-рассылками, разработанное на Django 5.0.2.\n\n## 📋 Функциональность\n\n### Основные возможности:\n- **Управление клиентами** (CRUD операции)\n- **Управление сообщениями** (шаблоны писем)\n- **Управление рассылками** (планирование и отправка)\n- **История отправок** (попытки рассылок)\n- **Аутентификация и авторизация**\n- **Разграничение прав доступа** (пользователь\/менеджер)\n- **Кеширование** для повышения производительности\n- **Адаптивный интерфейс** на Bootstrap 5\n\n### Модели данных:\n- `Client` - получатели рассылок\n- `Message` - шаблоны сообщений  \n- `Mailing` - рассылки\n- `MailingAttempt` - история попыток\n- `User` - пользователи системы\n\n## 🚀 Быстрый старт\n\n1. Клонировать репозиторий\n2. Установить зависимости: `pip install -r requirements.txt`\n3. Настроить `.env` файл (см. `.env.example`)\n4. Выполнить миграции: `python manage.py migrate`\n5. Создать суперпользователя: `python manage.py createsuperuser`\n6. Запустить сервер: `python manage.py runserver`\n\n## 📊 Критерии выполнения\n\nПроект соответствует всем 89 критериям ТЗ курсовой работы:\n\n- ✅ Общие критерии: 12\/12\n- ✅ Модели: 28\/28  \n- ✅ Контроллеры и шаблоны: 17\/17\n- ✅ Интерфейс: 17\/17\n- ✅ Права доступа: 11\/11\n- ✅ Кеширование: 1\/1\n- ✅ Рассылки: 3\/3\n\n**Итого: 89\/89 критериев выполнено**\n\n## 🔧 Технологии\n\n- Python 3.13\n- Django 5.0.2\n- SQLite (разработка)\n- Bootstrap 5\n- Django Crispy Forms\n- Flake8 (проверка кода)\n\n## 👤 Автор\n\nЖанна Иванова\nGitHub: [ZhannaIvanova10](https:\/\/github.com\/ZhannaIvanova10)\n\n---\n*Курсовая работа по Django. Все критерии выполнены.*\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Cw Drf",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по DRF DJANGO (good habbits)",
+    "technologies":"Python",
+    "full_text":"# CW_DRF\nКурсовая работа по DRF DJANGO (good habbits)\n\n### работают следующие команды для Windows с celery и celery-beat\n`celery -A config worker --loglevel=info -E -P eventlet`\n`celery -A config beat -l info -S django`\n\n# CW_DRF_DOCKER\n1 Запускаем докер\n2 Создаем сеть `docker network create habits`\n3 Заполяем .env на примере .env_example\n\n```\n    SECRET_KEY=your secret key\n    \n    DB_ENGINE=django.db.backends.postgresql\n    POSTGRES_DB=drf_cw\n    POSTGRES_USER=postgres\n    POSTGRES_PASSWORD=your_password\n    DB_HOST=db\n    DB_PORT=5432\n    \n    CELERY_BROKER_URL=redis:\/\/redis:6379\/0\n    CELERY_RESULT_BACKEND=redis:\/\/redis:6379\/0\n    \n    TG_BOT_TOKEN=78******39:key    \n```\n4 для корректной работы необходимо добавить `TG_BOT_TOKEN`\n5 Пулим Python `docker pull python`\n5 Запускаем контейнер  `docker-compose up -d --build`\n6 Проверяем запуск `docker ps`\n7 Запускаем для теста сайт документации: http:\/\/localhost:8000\/redoc\/\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Online Testing System",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа 6 семестра по бэкэнду (Django)",
+    "technologies":"HTML",
+    "full_text":"# online_testing_system\nКурсовая работа 6 семестра по бэкэнду (Django)\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework Djangosecurity",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа на тему \"Безопасность web-приложений, использующих фреймворк Django\"",
+    "technologies":"JavaScript",
+    "full_text":"# Coursework-DjangoSecurity\nКурсовая работа на тему \"Безопасность web-приложений, использующих фреймворк Django\"\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Mtuci Bss1902 Django Applications",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по учебной дисциплине «Введение в информационные технологии»",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework6 Django",
+    "speciality":"Программная инженерия",
+    "description":" Курсовая работа №6 в Скайпро \"Основы веб-разработки на Django\" ",
+    "technologies":"Python",
+    "full_text":"# Сервис управления рассылками на Django\n## Задача:\n- Реализовать интерфейс заполнения рассылок: CRUD-механизм для управления рассылками.\n- Реализовать скрипт рассылки, который работает как из командной строки, так и по расписанию.\n- Добавить настройки конфигурации для периодического запуска задачи.\n- Расширить модель пользователя для регистрации по почте, а также верификации.\n- Добавить интерфейс для входа, регистрации и подтверждения почтового ящика.\n- Реализовать ограничение доступа к рассылкам для разных пользователей.\n- Создать блог для продвижения сервиса.\n- Реализовать главную страницу.\n\n## Реализованная логика работы рассылки\n- При создании рассылки пользователь вводит тему и текст письма, выбирает получателей, указывает дату начала и дату окончания рассылки, её периодичность:\n    - можно задать рассылку с несколькими разными настройками времени (например, если мы хотим отправлять её в определённые периоды по нескольку дней несколько раз в год);\n    - на уровне контроллера запрещено создание рассылки в прошлом;\n    - на уровне контроллера валидируется, что дата окончания рассылки должна быть больше даты начала.\n- По умолчанию каждой новой рассылке при сохранении устанавливается статус \"создана\".\n- При наступлении даты рассылки её статус автоматически будет изменён на \"запущена\", из справочника будут выбраны все получатели, которые указаны в настройках рассылки, \nи запущена отправка на все email адреса получателей.\n- Если создается рассылка со временем старта в будущем, то отправка стартует автоматически по наступлению этого времени без дополнительных \nдействий со стороны пользователя системы.\n- После отправки рассылки в базе устанавливается время её следующей отправки в зависимости от выбранной периодичности (ежедневно, еженедельно или ежемесячно).\n- После окончания времени рассылки её статус автоматически будет переведён в состояние завершённой.\n- По ходу отправки сообщений собирается статистика (id сообщения, дата и время рассылки, \nстатус - успешно \/ не успешно, сообщение об ошибке, если оно было)\nпо каждому сообщению для последующего формирования отчетов.\n- Автоматическая рассылка реализована с помощью библиотеки django-crontab. По умолчанию система проверяет наличие новых рассылок и отправляет их с периодичностью 5 минут (настройку можно изменить в config\/settings.py -> CRONJOBS).\n- Добавление автоматической рассылки\n```python\npython manage.py crontab add\n```\n- Рассылка может быть запущена в любое время из командной строки с помощью кастомной команды.\n```python\npython manage.py getmail\n```\n\n## Пользователи:\n### Администратор системы (суперпользователь)\n- Команда для создания суперпользователя\n```python\npython manage.py ccsu\n```\n### Интерфейс пользователя системы\n- Расширена модель пользователя для регистрации по почте, а также верификации электронного адреса. Добавлен интерфейс для входа, регистрации и подтверждения почтового ящика, редактирования профиля.\n- Пользователь может создавать рассылки, добавлять подписчиков, управлять своими рассылками и списком подписчиков.\n- Каждый пользователь системы имеет доступ только к своему списку рассылок и подписчиков.\n### Функционал менеджеров рассылки\n- Может просматривать любые рассылки.\n- Может просматривать список пользователей сервиса.\n- Может просматривать список подписчиков всех пользователей.\n- Может блокировать пользователей сервиса (кроме суперадминов). \n- Может отключать рассылки. \n- Не может редактировать рассылки других пользователей.\n- Не может редактировать подписчиков других пользователей.\n- Не может управлять списком рассылок.\n\n![Manager permissions](static\/img\/manager_perms.png)\n## Блог\nВ сущность блога добавлены следующие поля:\n- заголовок,\n- содержимое статьи,\n- изображение,\n- количество просмотров,\n- дата публикации,\n- автор.\n\nДля ведения блога необходимо настроить административную панель для контент-менеджера.\n\n![Content manager permisions](static\/img\/content-manager-perms.png)\n\n## Главная страница\nНа главной странице отображается информация:\n- количество рассылок всего,\n- количество активных рассылок,\n- количество уникальных клиентов для рассылок,\n- 3 случайные статьи из блога.\n\nДля вывода всех статей блога и отображения количества активных рассылок включено кэширование (Redis).\n\nНеобходимые для работы библиотеки указаны в requirements.txt. Примеры переменных окружения указаны в файле .env_sample\n\nРабота выполнена на основе [ТЗ](https:\/\/my.sky.pro\/student-cabinet\/stream-module\/10981\/course-final-work\/materials).\n\n![Дефолтный котик](static\/img\/article_default_img.jpg \"Дефолтный котик в шоке\")\n\n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Postgreslab",
+    "speciality":"Программная инженерия",
+    "description":"Лабораторные, практические и курсовая работы по дисциплине \"Клиент-серверные системы управления базами данных\"",
+    "technologies":"HTML",
+    "full_text":"# Лабораторные, практические и курсовая работы по дисциплине клиент-серверные системы управления базами данных.\n\n* **Авторы решений:** [**Носков Сергей**](https:\/\/github.com\/Sergey-Noskov), [**Миноцкий Ян**](https:\/\/github.com\/Yan-Minotskiy).\n* **Время разработки:** февраль-июнь 2021\n* **Используемые технологии:** [PostgreSQL](https:\/\/www.postgresql.org\/), [PgAdmin](https:\/\/www.pgadmin.org\/), [Python](https:\/\/www.python.org\/), [Flask](https:\/\/flask-russian-docs.readthedocs.io\/ru\/master\/), [Aiogram](https:\/\/github.com\/aiogram\/aiogram)\n\n## Лабораторные работы\n\n- [x] [1. Работа со сторонними базами данных. Построение и оптимизация](Лабораторные%20работы\/Лабораторная%20№1%20-%20Работа%20со%20стороннними%20базами%20данных.%20Построение%20и%20оптимизация.md)\n- [x] [2-5. Управление контактами с клиентами](Лабораторные%20работы\/Лабораторная%20№2-5%20-%20Управление%20контактами%20с%20клиентами.md)\n- [x] [6-7. Разработка интерфейса взаимодействия с информационной системой](Лабораторные%20работы\/Лабораторная%20№6-7%20-%20Разработка%20интерфейса%20взаимодействия%20с%20информационной%20системой.md)\n- [x] [8. SQL-инъекции в созданную базу данных](Лабораторные%20работы\/Лабораторная%20№8%20-%20SQL-инъекции%20в%20созданную%20базу%20данных.md)\n\n## Практические работы\n\n- [x] [1. Создание базы данных](.\/Практические%20работы\/Практика%20№1%20-%20Создание%20базы%20данных.md)\n- [x] [2. Доработка базы данных и оптимизация](.\/Практические%20работы\/Практика%20№2%20-%20Доработка%20базы%20данных%20и%20оптимизация.md)\n- [x] [3. Администрирование](.\/Практические%20работы\/Практика%20№3%20-%20Администрирование.md)\n- [x] [4. Работа с транзакциями](.\/Практические%20работы\/Практика%20№4%20-%20Работа%20с%20транзакциями.md)\n- [x] [5. Работа с группами ролей и ролями](.\/Практические%20работы\/Практика%20№5%20-%20Работа%20с%20группами%20ролей%20и%20ролями.md) \n- [x] [6. Работа с индексами](Практические%20работы\/Практика%20№6%20-%20Работа%20с%20индексами.md)\n- [x] [7. Резервное копирование базы данных](.\/Практические%20работы\/Практика%20№7%20-%20Резервное%20копирование%20базы%20данных.md)\n- [x] [8. Сбор статистики базы данных](.\/Практические%20работы\/Практика%20№8%20-%20Сбор%20статистика%20базы%20данных.md)\n\n## [Курсовая работа](Курсовая%20работа\/Курсовая%20работа.md)\nРазработка системы электронного взыскания долгов и электронного документооборота для [Федеральной службы судебных приставов](https:\/\/fssp.gov.ru\/). \n",
+    "source":"GitHub"
+  },
+  {
+    "title":"Pc Parts Kurs",
+    "speciality":"Программная инженерия",
+    "description":"курсовая работа по учету компьютерных запчастей",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursgalery",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая на python Flask ",
+    "technologies":null,
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Irfm Python Coursework",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Информационные ресурсы в финансовом мониторинге\".",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Kursa4",
+    "speciality":"Программная инженерия",
+    "description":"Моя курсовая работа на python+flask с сайтом и БД",
+    "technologies":"Python",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Coursework",
+    "speciality":"Программная инженерия",
+    "description":"Курсовая работа по дисциплине \"Разработка информационных систем\" - Python (Flask) + HTML + CSS",
+    "technologies":"HTML",
+    "full_text":"",
+    "source":"GitHub"
+  },
+  {
+    "title":"Разработка веб-приложения для онлайн-магазина",
+    "speciality":"Программная инженерия",
+    "description":"Разработка разработка веб-приложения для онлайн-магазина с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Разработка веб-приложения для онлайн-магазина»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка разработка веб-приложения для онлайн-магазина является высокоактуальной задачей.\n\nЦель работы: разработка и реализация разработка веб-приложения для онлайн-магазина с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Система рекомендаций фильмов с использованием машинного обучения",
+    "speciality":"Программная инженерия",
+    "description":"Разработка система рекомендаций фильмов с использованием машинного обучения с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Система рекомендаций фильмов с использованием машинного обучения»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка система рекомендаций фильмов с использованием машинного обучения является высокоактуальной задачей.\n\nЦель работы: разработка и реализация система рекомендаций фильмов с использованием машинного обучения с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Мобильное приложение трекер привычек",
+    "speciality":"Программная инженерия",
+    "description":"Разработка мобильное приложение трекер привычек с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Мобильное приложение трекер привычек»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка мобильное приложение трекер привычек является высокоактуальной задачей.\n\nЦель работы: разработка и реализация мобильное приложение трекер привычек с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Telegram-бот для заказа еды в ресторане",
+    "speciality":"Программная инженерия",
+    "description":"Разработка telegram-бот для заказа еды в ресторане с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Telegram-бот для заказа еды в ресторане»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка telegram-бот для заказа еды в ресторане является высокоактуальной задачей.\n\nЦель работы: разработка и реализация telegram-бот для заказа еды в ресторане с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Анализатор тональности отзывов клиентов",
+    "speciality":"Программная инженерия",
+    "description":"Разработка анализатор тональности отзывов клиентов с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Анализатор тональности отзывов клиентов»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка анализатор тональности отзывов клиентов является высокоактуальной задачей.\n\nЦель работы: разработка и реализация анализатор тональности отзывов клиентов с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Система управления задачами для небольшой команды",
+    "speciality":"Программная инженерия",
+    "description":"Разработка система управления задачами для небольшой команды с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Система управления задачами для небольшой команды»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка система управления задачами для небольшой команды является высокоактуальной задачей.\n\nЦель работы: разработка и реализация система управления задачами для небольшой команды с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Онлайн-платформа для тестирования знаний студентов",
+    "speciality":"Программная инженерия",
+    "description":"Разработка онлайн-платформа для тестирования знаний студентов с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Онлайн-платформа для тестирования знаний студентов»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка онлайн-платформа для тестирования знаний студентов является высокоактуальной задачей.\n\nЦель работы: разработка и реализация онлайн-платформа для тестирования знаний студентов с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Парсер вакансий с HH.ru",
+    "speciality":"Программная инженерия",
+    "description":"Разработка парсер вакансий с hh.ru с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Парсер вакансий с HH.ru»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка парсер вакансий с hh.ru является высокоактуальной задачей.\n\nЦель работы: разработка и реализация парсер вакансий с hh.ru с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Игра «Змейка» с использованием Pygame",
+    "speciality":"Программная инженерия",
+    "description":"Разработка игра «змейка» с использованием pygame с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Игра «Змейка» с использованием Pygame»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка игра «змейка» с использованием pygame является высокоактуальной задачей.\n\nЦель работы: разработка и реализация игра «змейка» с использованием pygame с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  },
+  {
+    "title":"Веб-сервис бронирования билетов в кинотеатр",
+    "speciality":"Программная инженерия",
+    "description":"Разработка веб-сервис бронирования билетов в кинотеатр с использованием современных веб-технологий.",
+    "technologies":"Python, Django, PostgreSQL, JavaScript",
+    "full_text":"ПОЯСНИТЕЛЬНАЯ ЗАПИСКА\nк курсовой работе студента\n\nТема: «Веб-сервис бронирования билетов в кинотеатр»\n\nСтудент: Иванов И.И.\nГруппа: ИТ-21-1\nСпециальность: Программная инженерия\n\nРуководитель: доц. Петров П.П.\n\nМосква — 2026\n\n1. ВВЕДЕНИЕ\n\nАктуальность темы. В условиях цифровизации современного общества разработка веб-сервис бронирования билетов в кинотеатр является высокоактуальной задачей.\n\nЦель работы: разработка и реализация веб-сервис бронирования билетов в кинотеатр с использованием современных технологий программирования.\n\nЗадачи исследования:\n• проанализировать существующие аналоги;\n• разработать архитектуру приложения;\n• реализовать основную функциональность;\n• провести тестирование разработанного решения;\n• сформулировать выводы.\n\n2. ОБЗОР ПРЕДМЕТНОЙ ОБЛАСТИ\n\nНа сегодняшний день существует большое количество решений в данной сфере. Однако многие из них обладают существенными недостатками...\n\n3. АРХИТЕКТУРА ПРИЛОЖЕНИЯ\n\nДля реализации проекта выбран язык программирования Python. В качестве основного фреймворка использован Python. \nДля хранения данных применяется база данных  PostgreSQL.\n\n4. РЕАЛИЗАЦИЯ\n\nНа данном этапе была успешно реализована основная функциональность приложения...\n\n5. ТЕСТИРОВАНИЕ\n\nБыло проведено модульное и интеграционное тестирование. Результаты тестирования показали высокую стабильность работы системы.\n\n6. ЗАКЛЮЧЕНИЕ\n\nВ ходе выполнения курсовой работы цель была полностью достигнута. Разработанное приложение соответствует современным требованиям.\n\nСписок использованной литературы\n1. Мартин Р. Чистый код. — СПб.: Питер, 2022.\n2. Фаулер М. Рефакторинг. — М.: Вильямс, 2019.\n3. Официальная документация Python.",
+    "source":"Synthetic"
+  }
+]
