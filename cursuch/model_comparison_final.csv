@@ -1,0 +1,4 @@
+﻿model,ROUGE-1,ROUGE-L,BERTScore,Avg_Time_sec
+deepseek-r1:14b,,,,
+llama3.1:8b,,,,
+qwen2:7b,,,,
